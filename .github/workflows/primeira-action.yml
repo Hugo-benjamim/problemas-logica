@@ -1,0 +1,17 @@
+name: workflow1
+on: workflow_dispatch
+jobs:
+  primeiro-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: saudacao
+        run: echo "entramos no rolê"
+      - name: despedida
+        run: echo "falou cachorro"
+  segundo-job:
+    uses: trstringer/manual-approval@v1
+    with:
+      secret: ${{ github.TOKEN }}
+      approvers: Hugo-benjamim
+    steps:
+      - run: echo "aprovado"
